@@ -28,7 +28,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 12 | Parent: children & settings | ✅ | |
 | 13 | Offline PWA & GitHub Pages deploy | ✅ | `.github/workflows/deploy.yml` |
 | 14 | Automated tests | ✅ | `src/**/*.test.ts(x)`, `e2e/` |
-| 15 | Verify & deliver | ⏳ | |
+| 15 | Verify & deliver | ✅ | See VERIFICATION.md |
 
 ## Checkpoint zips sent
 | Checkpoint | After task | Contents |
@@ -37,6 +37,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 2 | Task 4 | + original content, catalog, storage, backup, PIN; 51 tests pass |
 | 3 | Task 9 | + all child-facing screens (setup, home, practice in every mode, sprint, summary, stickers); browser smoke-tested |
 | 4 | Task 13 | + grown-ups area (progress, decks, editors, children, settings, backup), icons, README, CREDITS, deploy workflow — feature-complete |
+| 5 (final) | Task 15 | + 64 unit/component and 9 end-to-end tests passing, VERIFICATION.md, live demo published |
 
 ## Decisions made during the build
 - Stack: React 18 + TypeScript + Vite, Dexie (IndexedDB), vite-plugin-pwa, lucide-react icons, d3-geo maps.
