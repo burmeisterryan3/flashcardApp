@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { beforeEach, describe, expect, it } from 'vitest';
 import { childDecks, db, deleteDeck, putMedia, saveDeck, seedBuiltins } from './db';
 import { deleteAll, exportAll, importAll } from '../lib/backup';
