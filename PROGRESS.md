@@ -20,7 +20,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 4 | Storage layer (Dexie, seed, backup) | ✅ | `src/db/`, `src/lib/backup.ts` |
 | 5 | Design system & shared UI | ✅ | `src/styles.css`, `src/ui/` |
 | 6 | Onboarding & profiles | ✅ | `src/screens/` |
-| 7 | Child home, deck list, sticker book | ⏳ | |
+| 7 | Child home, deck list, sticker book | ✅ | |
 | 8 | Practice screen (all modes) | ⏳ | |
 | 9 | Fact Sprint & session summary | ⏳ | |
 | 10 | Parent: gate, progress, decks | ⏳ | `src/screens/parent/` |
