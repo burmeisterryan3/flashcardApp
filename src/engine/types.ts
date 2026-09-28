@@ -43,7 +43,8 @@ export interface CardData {
   f2?: Frac;
   mixed?: Mixed;
   // geography map
-  stateId?: string;
+  stateId?: string; // us-atlas FIPS id
+  continent?: string;
 }
 
 export interface Card {
@@ -168,6 +169,17 @@ export interface Session {
   starsEarned: number;
   completed: boolean;
   kind: 'today' | 'deck' | 'sprint' | 'test';
+  deckId?: string;
+  /** Mode override for single-deck sessions (e.g. Look-Cover-Write). */
+  mode?: Mode;
+  /** Saved queue so an interrupted session can resume ("Keep going?"). */
+  queue?: import('./session').QueueState;
+  /** Cards answered correctly on first try this session that were brand new. */
+  newLearned?: number;
+  correctCount?: number;
+  /** Test Day results: cardId → correct. */
+  testResults?: Record<string, boolean>;
+  newStickers?: string[];
 }
 
 export interface Rewards {
@@ -191,6 +203,8 @@ export interface ParentSettings {
   theme: 'system' | 'light' | 'dark';
   voiceURI?: string;
   requirePinToSwitch: boolean;
+  /** Set when the device has no speech synthesis (CS-09 / WF edge case). */
+  ttsUnavailable?: boolean;
   onboarded: boolean;
 }
 
