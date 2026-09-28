@@ -39,3 +39,4 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 - Card IDs are `${deckId}|<stable key>` so regenerating a deck keeps progress.
 - Leitner due dates are day-based (due any time on the due day).
 - Fact Sprint answers are logged but don't move Leitner boxes.
+| 1 | Task 2 | Requirements, engine + 39 passing unit tests |
