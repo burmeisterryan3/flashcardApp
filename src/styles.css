@@ -974,6 +974,10 @@ table.list td {
     border: none;
     padding: 4px 0;
   }
+  table.responsive td[data-label]::before {
+    content: attr(data-label) ': ';
+    font-weight: 600;
+  }
   .parent main {
     padding: 12px;
   }

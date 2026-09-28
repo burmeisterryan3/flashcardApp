@@ -140,8 +140,8 @@ export default function ProgressTab() {
                 return (
                   <tr key={t.card.id}>
                     <td>{describeCard(t.card)}</td>
-                    <td>{t.misses}</td>
-                    <td className="muted">{t.wrong.join(', ') || '—'}</td>
+                    <td data-label="Misses">{t.misses}</td>
+                    <td className="muted" data-label="Answers given">{t.wrong.join(', ') || '—'}</td>
                     <td>
                       <button className={`btn small ${focused ? 'primary' : 'ghost'}`} aria-pressed={!!focused} onClick={() => setFocus(childId!, t.card, !focused)}>
                         <Target size={16} aria-hidden /> {focused ? 'In focus' : 'Add to focus'}
@@ -224,7 +224,7 @@ function DeckRows({
             <span>{m.pctMastered}%</span>
           </div>
         </td>
-        <td>{fmtDate(last)}</td>
+        <td data-label="Last practiced">{fmtDate(last)}</td>
       </tr>
       {open && (
         <tr>
@@ -248,9 +248,9 @@ function DeckRows({
                   return (
                     <tr key={c.id}>
                       <td>{describeCard(c)}</td>
-                      <td>{{ new: 'Not started', learning: 'Learning', 'getting-there': 'Getting there', mastered: 'Mastered' }[lvl]}</td>
-                      <td>{acc}</td>
-                      <td>{fmtDate(p?.lastSeenAt ?? 0)}</td>
+                      <td data-label="Level">{{ new: 'Not started', learning: 'Learning', 'getting-there': 'Getting there', mastered: 'Mastered' }[lvl]}</td>
+                      <td data-label="Accuracy">{acc}</td>
+                      <td data-label="Last seen">{fmtDate(p?.lastSeenAt ?? 0)}</td>
                       <td>
                         <button className={`btn small ${p?.focus ? 'primary' : 'ghost'}`} aria-pressed={!!p?.focus} onClick={() => setFocus(childId, c, !p?.focus)}>
                           {p?.focus ? 'In focus' : 'Focus'}
