@@ -34,6 +34,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | Checkpoint | After task | Contents |
 |---|---|---|
 | 1 | Task 2 | Requirements, engine + 39 passing unit tests |
+| 2 | Task 4 | + original content, catalog, storage, backup, PIN; 51 tests pass |
 
 ## Decisions made during the build
 - Stack: React 18 + TypeScript + Vite, Dexie (IndexedDB), vite-plugin-pwa, lucide-react icons, d3-geo maps.
