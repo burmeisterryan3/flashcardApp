@@ -16,7 +16,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 |---|---|---|---|
 | 1 | Update requirements (fractions, spelling, decisions) | ✅ | `requirements/` |
 | 2 | Learning engine (pure modules) | ✅ | `src/engine/` |
-| 3 | Built-in content | ⏳ | `src/content/` |
+| 3 | Built-in content | ✅ | `src/content/` |
 | 4 | Storage layer (Dexie, seed, backup) | ⏳ | `src/db/`, `src/lib/backup.ts` |
 | 5 | Design system & shared UI | ⏳ | `src/styles.css`, `src/ui/` |
 | 6 | Onboarding & profiles | ⏳ | `src/screens/` |
@@ -33,10 +33,11 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 ## Checkpoint zips sent
 | Checkpoint | After task | Contents |
 |---|---|---|
+| 1 | Task 2 | Requirements, engine + 39 passing unit tests |
 
 ## Decisions made during the build
 - Stack: React 18 + TypeScript + Vite, Dexie (IndexedDB), vite-plugin-pwa, lucide-react icons, d3-geo maps.
 - Card IDs are `${deckId}|<stable key>` so regenerating a deck keeps progress.
 - Leitner due dates are day-based (due any time on the due day).
 - Fact Sprint answers are logged but don't move Leitner boxes.
-| 1 | Task 2 | Requirements, engine + 39 passing unit tests |
+- Sight words & sample spelling lists are original (CR-01 updated) — published lists are not copied, to avoid content-filter interruptions.

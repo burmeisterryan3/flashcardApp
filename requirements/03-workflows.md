@@ -9,7 +9,7 @@ Each workflow lists the trigger, steps, and edge cases. Child-facing flows assum
 2. Parent creates a 4-digit **parent PIN** (entered twice).
 3. Add child profile: name, grade (K–5), avatar (pick from set — no photos of the child).
 4. Pick starting subjects (checkboxes, pre-checked by grade).
-5. App suggests decks for that grade (e.g. Grade 2 → addition/subtraction to 20, Dolch Grade 2, continents). Parent accepts or edits.
+5. App suggests decks for that grade (e.g. Grade 2 → addition/subtraction to 20, Grade 2 sight words, continents). Parent accepts or edits.
 6. Land on the child's Home screen.
 
 Edge: parent skips steps → sensible grade-based defaults applied; can change later.
@@ -50,6 +50,9 @@ Triggered when: target card count reached, time limit reached, or child taps qui
 7. Save → deck assigned to selected child(ren).
 
 Target: 15 words in under 2 minutes (PO-02).
+
+## WF-05b Parent adds a sight-word list
+Same as WF-05 but **+ New deck → Sight words**; practiced as flip & self-check (CR-02) with a Hear it button, or as Hear & Spell.
 
 ## WF-06 Parent creates a math fact deck
 1. Grown-ups → **+ New deck → Math facts**.

@@ -100,7 +100,7 @@ Fractions are always displayed as stacked fractions (numerator over a bar over d
 - **CG-05** Bundled map/flag assets must be public domain or permissively licensed; record sources.
 
 ### Sight words / reading (SHOULD)
-- **CR-01** Bundled Dolch and Fry sight word lists by grade.
+- **CR-01** Bundled sight-word decks are **original** high-frequency word sets written for this app (grades K–3, ~30–40 words each). Published lists (Dolch, Fry) are not copied; instead the parent can paste the school's exact list into a new sight-word deck (same paste flow as spelling, CS-01).
 - **CR-02** Mode: word shown, child says it aloud, taps "I got it" / "Not yet" (self-check), with a "hear it" button.
 
 ### Custom decks (MUST)
@@ -120,5 +120,5 @@ Fractions are always displayed as stacked fractions (numerator over a bar over d
 - Math facts (generated)
 - Fractions: Compare, Reduce, Improper ↔ mixed (generated)
 - U.S. states & capitals, continents & oceans (world capitals and flags: later, per D-08)
-- Dolch sight words (pre-K–3), Fry first 300
-- 2–3 sample spelling decks by grade so the app isn't empty on first launch
+- Original sight-word sets for grades K–3 (see CR-01)
+- 3 original sample spelling decks (grades 1–3) with original example sentences, so the app isn't empty on first launch
