@@ -22,7 +22,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 6 | Onboarding & profiles | ✅ | `src/screens/` |
 | 7 | Child home, deck list, sticker book | ✅ | |
 | 8 | Practice screen (all modes) | ✅ | |
-| 9 | Fact Sprint & session summary | ⏳ | |
+| 9 | Fact Sprint & session summary | ✅ | |
 | 10 | Parent: gate, progress, decks | ⏳ | `src/screens/parent/` |
 | 11 | Parent: deck editors | ⏳ | |
 | 12 | Parent: children & settings | ⏳ | |
@@ -35,6 +35,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 |---|---|---|
 | 1 | Task 2 | Requirements, engine + 39 passing unit tests |
 | 2 | Task 4 | + original content, catalog, storage, backup, PIN; 51 tests pass |
+| 3 | Task 9 | + all child-facing screens (setup, home, practice in every mode, sprint, summary, stickers); browser smoke-tested |
 
 ## Decisions made during the build
 - Stack: React 18 + TypeScript + Vite, Dexie (IndexedDB), vite-plugin-pwa, lucide-react icons, d3-geo maps.

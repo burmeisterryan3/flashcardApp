@@ -104,6 +104,10 @@ export default function Home() {
         </div>
 
         <div className="row" style={{ justifyContent: 'space-between', marginTop: 24 }}>
+          <div className="row">
+            <Owl size={64} mood={done >= goal ? 'cheer' : 'happy'} />
+            <span className="muted">{done >= goal ? `Goal done! ${streak > 1 ? `${streak} days in a row!` : ''}` : 'Every card makes you stronger!'}</span>
+          </div>
           <button className="btn" onClick={() => go({ name: 'stickers' })}>
             <Sticker aria-hidden /> Sticker book
           </button>

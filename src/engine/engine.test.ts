@@ -225,6 +225,12 @@ describe('session builder (05)', () => {
     expect(ids.length).toBeLessThanOrEqual(6);
     expect(ids.length).toBeGreaterThan(0);
   });
+  it('new cards are mixed across subjects', () => {
+    const cards = [...mk('a', 20), ...mk('b', 20), ...mk('c', 20)];
+    const decks = [deck('a'), deck('b', { subjectId: 'spelling' }), deck('c', { subjectId: 'geography' })];
+    const ids = buildTodaySession({ cards, decks, progress: new Map(), now, size: 15, rng: seeded(3) });
+    expect(new Set(ids.map((i) => i[0])).size).toBe(3);
+  });
   it('focus cards come first; archived decks excluded', () => {
     const progress = new Map([prog('a3', { focus: true, box: 4, dueAt: now + 5 * DAY })]);
     const ids = buildTodaySession({

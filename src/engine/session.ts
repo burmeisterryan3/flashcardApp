@@ -36,7 +36,7 @@ const isNewOrBox1 = (p?: CardProgress) => !p || p.timesSeen === 0 || p.box === 1
 /** Today's Practice: focus → upcoming tests → due (low box first) → a few new → review fill. */
 export function buildTodaySession(input: BuildInput): string[] {
   const { cards, decks, progress, now, size, rng = Math.random } = input;
-  const maxNew = input.maxNew ?? 4;
+  const maxNew = input.maxNew ?? 5;
   const deckById = new Map(decks.map((d) => [d.id, d]));
   const usable = cards.filter((c) => {
     const d = deckById.get(c.deckId);
@@ -98,8 +98,10 @@ export function buildTodaySession(input: BuildInput): string[] {
   for (const c of due) take(c);
 
   // 4. A few new cards, drawn across decks so subjects mix.
+  const subjectOf = (c: Card) => deckById.get(c.deckId)?.subjectId ?? c.deckId;
   const fresh = interleaveByDeck(
     shuffle(usable.filter((c) => !progress.get(c.id) || progress.get(c.id)!.timesSeen === 0), rng),
+    subjectOf,
   );
   for (const c of fresh) take(c);
 
@@ -130,11 +132,12 @@ export function buildDeckSession(input: BuildInput): string[] {
 }
 
 /** Spread cards so the same deck doesn't repeat back-to-back when avoidable. */
-export function interleaveByDeck(cards: Card[]): Card[] {
+export function interleaveByDeck(cards: Card[], keyOf: (c: Card) => string = (c) => c.deckId): Card[] {
   const groups = new Map<string, Card[]>();
   for (const c of cards) {
-    if (!groups.has(c.deckId)) groups.set(c.deckId, []);
-    groups.get(c.deckId)!.push(c);
+    const k = keyOf(c);
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k)!.push(c);
   }
   const out: Card[] = [];
   let last = '';
