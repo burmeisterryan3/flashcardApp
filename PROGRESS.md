@@ -23,7 +23,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 7 | Child home, deck list, sticker book | ✅ | |
 | 8 | Practice screen (all modes) | ✅ | |
 | 9 | Fact Sprint & session summary | ✅ | |
-| 10 | Parent: gate, progress, decks | ⏳ | `src/screens/parent/` |
+| 10 | Parent: gate, progress, decks | ✅ | `src/screens/parent/` |
 | 11 | Parent: deck editors | ⏳ | |
 | 12 | Parent: children & settings | ⏳ | |
 | 13 | Offline PWA & GitHub Pages deploy | ⏳ | `.github/workflows/deploy.yml` |
