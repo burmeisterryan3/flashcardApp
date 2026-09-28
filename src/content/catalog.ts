@@ -249,6 +249,9 @@ export const BUILTINS: BuiltinDef[] = [
   ),
 ];
 
+/** Bump when built-in content changes so existing installs refresh it on next launch. */
+export const CONTENT_VERSION = 1;
+
 export const builtinDeckId = (key: string) => `builtin:${key}`;
 
 export function builtinDeck(def: BuiltinDef, order: number, assigned: string[], now: number): Deck {

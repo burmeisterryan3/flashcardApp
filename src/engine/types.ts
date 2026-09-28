@@ -205,6 +205,8 @@ export interface ParentSettings {
   requirePinToSwitch: boolean;
   /** Set when the device has no speech synthesis (CS-09 / WF edge case). */
   ttsUnavailable?: boolean;
+  /** Built-in content version last seeded (see catalog.CONTENT_VERSION). */
+  contentVersion?: number;
   onboarded: boolean;
 }
 
