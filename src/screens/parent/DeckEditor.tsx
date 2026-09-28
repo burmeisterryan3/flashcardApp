@@ -320,7 +320,7 @@ function ListEditor({
               Sentences are read aloud between the word (the word is hidden on screen). Record your own voice if the device says a word oddly.
             </p>
           )}
-          <table className="list">
+          <table className="list responsive">
             <tbody>
               {rows.map((r) => (
                 <tr key={r.id}>
@@ -643,7 +643,7 @@ function CustomEditor({
             </div>
           </div>
         )}
-        <table className="list" style={{ marginTop: 8 }}>
+        <table className="list responsive" style={{ marginTop: 8 }}>
           <tbody>
             {rows.map((r, i) => (
               <tr key={r.id}>

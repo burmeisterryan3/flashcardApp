@@ -99,7 +99,7 @@ export default function ProgressTab() {
       {tests.length > 0 && (
         <section className="panel">
           <h2>Upcoming tests</h2>
-          <table className="list">
+          <table className="list responsive">
             <tbody>
               {tests.map((d) => {
                 const m = deckMastery(cardsOf(d.id).map((c) => c.id), data.progress);
@@ -123,7 +123,7 @@ export default function ProgressTab() {
         {view.trouble.length === 0 ? (
           <p className="muted">Nothing tricky yet — great!</p>
         ) : (
-          <table className="list">
+          <table className="list responsive">
             <thead>
               <tr>
                 <th>Card</th>
@@ -165,7 +165,7 @@ export default function ProgressTab() {
         <p className="muted" style={{ fontSize: '0.9em' }}>
           Bars: <span style={{ color: 'var(--good)' }}>■</span> mastered · <span style={{ color: 'var(--math)' }}>■</span> getting there · <span style={{ color: 'var(--amber-line)' }}>■</span> learning · grey not started. Tap a deck for card-by-card detail.
         </p>
-        <table className="list">
+        <table className="list responsive">
           <thead>
             <tr>
               <th>Deck</th>

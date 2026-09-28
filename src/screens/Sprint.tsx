@@ -130,7 +130,7 @@ export default function Sprint({ deckId }: { deckId: string }) {
           </button>
         ) : (
           <span className="chip" aria-live="off" style={{ fontSize: '1.3em' }}>
-            <Timer aria-hidden /> <span aria-label={`${left} seconds left`}>{left}s</span>
+            <Timer aria-hidden /> {left}s<span className="sr-only"> left</span>
           </span>
         )}
         <span className="spacer" />
@@ -168,7 +168,7 @@ export default function Sprint({ deckId }: { deckId: string }) {
                 <div className="prompt">{`${card.data.a} ${OP_SYMBOL[card.data.op]} ${card.data.b} = ?`}</div>
               ) : card.data?.f1 && card.data.f2 ? (
                 <div className="prompt row" style={{ justifyContent: 'center', gap: 24 }}>
-                  <FracView f={card.data.f1} /> <span aria-label="blank">?</span> <FracView f={card.data.f2} />
+                  <FracView f={card.data.f1} /> <span aria-hidden>?</span><span className="sr-only">blank</span> <FracView f={card.data.f2} />
                 </div>
               ) : null}
               {flash && !flash.ok && (

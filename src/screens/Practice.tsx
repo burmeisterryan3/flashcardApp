@@ -425,7 +425,7 @@ function PromptFace({ card, mode, lcwHidden, hintLevel, noVoice, mathFormat }: {
         {sentence && <p className="muted" style={{ fontSize: '1.1em' }}>{sentence}</p>}
         {noVoice && <p className="muted">Sound is off on this device — use the sentence and the first letter.</p>}
         {showLetters && (
-          <div className="letter-boxes" aria-label={`${card.answer.length} letters${hintLevel >= 2 || noVoice ? `, starting with ${card.answer[0]}` : ''}`}>
+          <div className="letter-boxes" role="img" aria-label={`${card.answer.length} letters${hintLevel >= 2 || noVoice ? `, starting with ${card.answer[0]}` : ''}`}>
             {card.answer.split('').map((ch, i) => (
               <span key={i}>{i === 0 && (hintLevel >= 2 || noVoice) ? ch : ''}</span>
             ))}
@@ -440,7 +440,8 @@ function PromptFace({ card, mode, lcwHidden, hintLevel, noVoice, mathFormat }: {
     const sym = OP_SYMBOL[d.op];
     if (mathFormat === 'vertical')
       return (
-        <div className="prompt" style={{ textAlign: 'right', fontVariantNumeric: 'tabular-nums' }} aria-label={`${d.a} ${OP_WORD[d.op]} ${d.b}`}>
+        <div className="prompt" style={{ textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
+          <span className="sr-only">{`${d.a} ${OP_WORD[d.op]} ${d.b}`}</span>
           <div aria-hidden>{d.a}</div>
           <div aria-hidden style={{ borderBottom: '5px solid currentColor', paddingBottom: 4 }}>
             {sym} {d.b}
@@ -448,7 +449,8 @@ function PromptFace({ card, mode, lcwHidden, hintLevel, noVoice, mathFormat }: {
         </div>
       );
     return (
-      <div className="prompt" aria-label={`${d.a} ${OP_WORD[d.op]} ${d.b} equals what?`}>
+      <div className="prompt">
+        <span className="sr-only">{`${d.a} ${OP_WORD[d.op]} ${d.b} equals what?`}</span>
         <span aria-hidden>
           {d.a} {sym} {d.b} = ?
         </span>
@@ -461,8 +463,9 @@ function PromptFace({ card, mode, lcwHidden, hintLevel, noVoice, mathFormat }: {
         <div className="muted">Which sign goes in the box?</div>
         <div className="prompt row" style={{ justifyContent: 'center', gap: 24 }}>
           <FracView f={d.f1} />
-          <span className="answer-display" style={{ minWidth: 72, fontSize: '0.8em' }} aria-label="blank">
-            ?
+          <span className="answer-display" style={{ minWidth: 72, fontSize: '0.8em' }}>
+            <span aria-hidden>?</span>
+            <span className="sr-only">blank</span>
           </span>
           <FracView f={d.f2} />
         </div>

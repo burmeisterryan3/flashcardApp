@@ -83,20 +83,32 @@ export function ProgressRing({ value, size = 96, children }: { value: number; si
 /** CS-02: 4-digit PIN with a scrambled keypad. */
 export function PinPad({ onComplete, error, label = 'Enter PIN' }: { onComplete: (pin: string) => void; error?: string; label?: string }) {
   const [digits] = useState(() => scrambledDigits());
-  const [pin, setPin] = useState('');
-  useEffect(() => {
-    if (pin.length === 4) {
-      onComplete(pin);
+  const [pin, setPinState] = useState('');
+  // The PIN is sent exactly once, from the key/tap that completes it (not from an effect,
+  // which could fire again whenever the parent re-renders).
+  const pinRef = useRef('');
+  const done = useRef(onComplete);
+  done.current = onComplete;
+  const setPin = (next: string) => {
+    pinRef.current = next;
+    setPinState(next);
+  };
+  const add = (d: string) => {
+    const next = pinRef.current.length < 4 ? pinRef.current + d : pinRef.current;
+    if (next.length === 4) {
       setPin('');
-    }
-  }, [pin, onComplete]);
+      done.current(next);
+    } else setPin(next);
+  };
+  const back = () => setPin(pinRef.current.slice(0, -1));
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
-      if (/^\d$/.test(e.key)) setPin((p) => (p.length < 4 ? p + e.key : p));
-      if (e.key === 'Backspace') setPin((p) => p.slice(0, -1));
+      if (/^\d$/.test(e.key)) add(e.key);
+      if (e.key === 'Backspace') back();
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="stack-gap" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -118,15 +130,15 @@ export function PinPad({ onComplete, error, label = 'Enter PIN' }: { onComplete:
       )}
       <div className="numpad" role="group" aria-labelledby="pin-label">
         {digits.slice(0, 9).map((d) => (
-          <button key={d} className="btn" onClick={() => setPin((p) => (p.length < 4 ? p + d : p))}>
+          <button key={d} className="btn" onClick={() => add(d)}>
             {d}
           </button>
         ))}
         <span />
-        <button className="btn" onClick={() => setPin((p) => (p.length < 4 ? p + digits[9] : p))}>
+        <button className="btn" onClick={() => add(digits[9])}>
           {digits[9]}
         </button>
-        <button className="btn" aria-label="Delete" onClick={() => setPin((p) => p.slice(0, -1))}>
+        <button className="btn" aria-label="Delete" onClick={back}>
           <Delete aria-hidden />
         </button>
       </div>

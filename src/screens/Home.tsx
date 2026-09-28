@@ -32,11 +32,13 @@ export default function Home() {
         </button>
         <h1 style={{ margin: 0, fontSize: '1.3em' }}>Hi, {child.name}!</h1>
         <span className="spacer" />
-        <span className="chip" aria-label={`${streak} day streak`}>
+        <span className="chip">
           <Flame size={22} color="#e8590c" aria-hidden /> {streak}
+          <span className="sr-only"> day streak</span>
         </span>
-        <span className="chip" aria-label={`${data.rewards.stars} stars`}>
+        <span className="chip">
           <Star size={22} color="var(--star)" fill="var(--star)" aria-hidden /> {data.rewards.stars}
+          <span className="sr-only"> stars</span>
         </span>
       </div>
 

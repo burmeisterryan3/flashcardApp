@@ -43,7 +43,8 @@ export function NumberPad({ onSubmit, disabled, maxLen = 4 }: { onSubmit: (v: st
   }, !disabled);
   return (
     <div className="stack-gap" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div className="answer-display" aria-live="polite" aria-label={`Your answer: ${v || 'empty'}`}>
+      <div className="answer-display" role="status">
+        <span className="sr-only">Your answer: </span>
         {v || ' '}
       </div>
       <div className="numpad" role="group" aria-label="Number pad">

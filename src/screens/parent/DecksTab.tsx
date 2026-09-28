@@ -63,7 +63,7 @@ export default function DecksTab() {
         return (
           <section key={s.id} className="panel">
             <h2 style={{ color: `var(--${s.color})` }}>{s.name}</h2>
-            <table className="list">
+            <table className="list responsive">
               <tbody>
                 {list.map((d, i) => {
                   const n = counts?.get(d.id) ?? 0;
@@ -139,7 +139,7 @@ export default function DecksTab() {
             Archived decks ({archived.length})
           </button>
           {showArchived && (
-            <table className="list">
+            <table className="list responsive">
               <tbody>
                 {archived.map((d) => (
                   <tr key={d.id}>

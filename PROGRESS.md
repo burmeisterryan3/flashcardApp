@@ -27,7 +27,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 11 | Parent: deck editors | ✅ | |
 | 12 | Parent: children & settings | ✅ | |
 | 13 | Offline PWA & GitHub Pages deploy | ✅ | `.github/workflows/deploy.yml` |
-| 14 | Automated tests | ⏳ | `src/**/*.test.ts(x)`, `e2e/` |
+| 14 | Automated tests | ✅ | `src/**/*.test.ts(x)`, `e2e/` |
 | 15 | Verify & deliver | ⏳ | |
 
 ## Checkpoint zips sent

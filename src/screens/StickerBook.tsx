@@ -25,7 +25,8 @@ export default function StickerBook() {
           {STICKERS.map((s) => {
             const got = have.has(s.id);
             return (
-              <div key={s.id} className={`card-surface sticker ${got ? '' : 'locked'}`} aria-label={got ? `${s.name} sticker` : `Locked sticker: ${s.how}`}>
+              <div key={s.id} className={`card-surface sticker ${got ? '' : 'locked'}`}>
+                {!got && <span className="sr-only">Locked sticker. </span>}
                 <div className="art" aria-hidden>
                   {s.emoji}
                 </div>
