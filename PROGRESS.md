@@ -17,7 +17,7 @@ attach the latest checkpoint zip (`hoot-flashcards-checkpoint-N.zip`), and say:
 | 1 | Update requirements (fractions, spelling, decisions) | ✅ | `requirements/` |
 | 2 | Learning engine (pure modules) | ✅ | `src/engine/` |
 | 3 | Built-in content | ✅ | `src/content/` |
-| 4 | Storage layer (Dexie, seed, backup) | ⏳ | `src/db/`, `src/lib/backup.ts` |
+| 4 | Storage layer (Dexie, seed, backup) | ✅ | `src/db/`, `src/lib/backup.ts` |
 | 5 | Design system & shared UI | ⏳ | `src/styles.css`, `src/ui/` |
 | 6 | Onboarding & profiles | ⏳ | `src/screens/` |
 | 7 | Child home, deck list, sticker book | ⏳ | |
