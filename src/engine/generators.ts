@@ -141,7 +141,6 @@ export function generateFractionCards(deckId: string, cfg: FractionConfig): Card
   if (cfg.skill === 'reduce') {
     for (let d = 2; d <= 12; d++)
       for (let n = 1; n <= d; n++) {
-        const base = { n, d };
         if (gcd(n, d) !== 1 && n !== d) continue;
         for (let k = 2; k <= 6; k++) {
           const f = { n: n * k, d: d * k };

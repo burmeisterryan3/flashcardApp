@@ -129,7 +129,7 @@ describe('math generator (CM-02)', () => {
   it('never divides by zero; division is whole-number', () => {
     const div = cards.filter((c) => c.data?.op === 'div');
     expect(div.length).toBeGreaterThan(0);
-    expect(div.every((c) => c.data!.b !== 0 && c.data!.a % c.data!.b! === 0)).toBe(true);
+    expect(div.every((c) => c.data!.b !== 0 && c.data!.a! % c.data!.b! === 0)).toBe(true);
   });
   it('addition facts stay within the max', () => {
     expect(cards.filter((c) => c.data?.op === 'add').every((c) => Number(c.answer) <= 20)).toBe(true);
